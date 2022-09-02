@@ -11,7 +11,7 @@ class ListsController < ApplicationController
     # 3データをデータベースに保存するSAVEメソッド実行
     list.save
     # 4トップへリダイレクト
-    redirect_to'/top'
+    redirect_to list_path(list.id)
   end
 
 
@@ -21,6 +21,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list=List.find(params[:id])
   end
 
   def edit
